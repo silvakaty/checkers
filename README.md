@@ -1,2 +1,3 @@
-# checkers
-Just having fun implementing checkers game. 
+# Checkers
+
+### Just having fun implementing checkers game.
