@@ -4,6 +4,10 @@ body {
   justify-content: center;
 }
 
+.checkers {
+  background-color: rgb(128, 126, 126)
+}
+
 .letters {
   display: flex;
   font-family: Tahoma;
@@ -12,12 +16,18 @@ body {
   background-color: rgb(45, 45, 45);
 }
 
+.letters.top {
+  transform: rotate(180deg);
+}
+
 .letters>div {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.5;
   width: 60px;
   height: 30px;
+  opacity: 0.4;
 }
 
 .letters>div:first-child, .letters>div:last-child {
@@ -34,25 +44,48 @@ body {
   background-color: rgb(45, 45, 45);
 }
 
+.numbers.right {
+  transform: rotate(180deg);
+}
+
 .numbers>div {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 30px;
   height: 60px;
+  opacity: 0.3;
 }
 
 #board {
   flex: 1;
   display: grid;
   grid-template: repeat(8, 60px) / repeat(8, 60px);
+  background-color: rgba(31, 30, 30, 0.878);
+  opacity: 0.6;
 }
 
-#board>div {
-  border: 1px solid black;
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(172, 169, 169);
 }
 
 .cell:nth-child(-2n+8), .cell:nth-child(8)~div:nth-child(-2n+15), .cell:nth-child(16)~div:nth-child(-2n+24), .cell:nth-child(24)~div:nth-child(-2n+31), .cell:nth-child(32)~div:nth-child(-2n+40), .cell:nth-child(40)~div:nth-child(-2n+47), .cell:nth-child(48)~div:nth-child(-2n+56), .cell:nth-child(56)~div:nth-child(-2n+63) {
-  background-color: #441a03;
-  color: #fff;
+  background-color: #888684;
+}
+
+.cell>div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.piece-player1 {
+  background-color: black;
+}
+
+.piece-player2 {
+  background-color: white;
 }

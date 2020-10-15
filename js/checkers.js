@@ -22,13 +22,13 @@ const drawLetters = () => {
 const drawNumbers = () => {
   const numbers = document.querySelectorAll('.numbers');
 
-  for (let i = 0; i < 8; i++) {
+  for (let i = 8; i >= 1; i--) {
     const numberLeft = document.createElement('div');
-    numberLeft.innerHTML = i + 1;
+    numberLeft.innerHTML = i;
     numbers[0].appendChild(numberLeft);
 
     const numberRight = document.createElement('div');
-    numberRight.innerHTML = i + 1;
+    numberRight.innerHTML = i;
     numbers[1].appendChild(numberRight);
   }
 };
@@ -36,10 +36,22 @@ const drawNumbers = () => {
 const drawBoard = () => {
   // const board = document.querySelector('#board');
   const board = document.getElementById('board');
+  const piecesPlayer1 = [0, 2, 4, 6, 9, 11, 13, 15, 16, 18, 20, 22];
+  const piecesPlayer2 = [41, 43, 45, 47, 48, 50, 52, 54, 57, 59, 61, 63];
 
   for (let i = 0; i < 64; i++) {
     const cell = document.createElement('div');
     cell.classList.add('cell');
+
+    if (piecesPlayer1.indexOf(i) > -1) {
+      const piece = document.createElement('div');
+      piece.classList.add('piece-player1');
+      cell.appendChild(piece);
+    } else if (piecesPlayer2.indexOf(i) > -1) {
+      const piece = document.createElement('div');
+      piece.classList.add('piece-player2');
+      cell.appendChild(piece);
+    }
     board.appendChild(cell);
   }
 };
